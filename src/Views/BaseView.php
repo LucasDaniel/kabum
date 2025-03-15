@@ -2,7 +2,13 @@
 
 namespace App\Views;
 
+use App\Dictionary\Dictionary;
+
 class BaseView {
+
+    protected function dictionary($label,$value) {
+        return Dictionary::dictionary($label)[$value];
+    }
     
     protected function header($title) {
 

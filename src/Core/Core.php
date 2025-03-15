@@ -8,6 +8,8 @@ use App\Http\Response;
 class Core {
 
     public static function dispatch(array $routes) {
+        $routeLibrary = 'src/Library';
+
         $prefixController = 'App\\Controllers\\';
         
         $routeFound = false;
@@ -16,7 +18,7 @@ class Core {
         isset($_GET['url']) && $url .= $_GET['url'];
         $url !== '/' && $url = rtrim($url, '/');
 
-        if (!str_contains($url,'src/Library')) {
+        if (!str_contains($url,$routeLibrary)) {
             foreach($routes as $route) {
                 $pattern = '#^'.preg_replace('/{id}/','([\w-]+)',$route['path']).'$#';
                 if (preg_match($pattern, $url, $matches)) {
