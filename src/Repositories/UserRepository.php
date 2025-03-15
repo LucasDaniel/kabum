@@ -21,4 +21,13 @@ class UserRepository {
                     senha = :senha";
     }
 
+    public static function rawVerifyUserById() {
+        return "SELECT 
+                    count(*) as quant
+                FROM 
+                    user
+                WHERE 
+                    id = :id";
+    }
+
 }

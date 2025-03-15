@@ -26,6 +26,7 @@ class Dictionary {
             'validateQuantTryNumbersGreaterThanZero' => "A quantidade de apostas precisa ser maior que 0",
             'validateQuantTryNumbersLessThanFiftyOne' => "A quantidade de apostas por usuário não pode ultrapassar 50 apostas",
             'validatorSameNumbers' => "Esses numeros já foram apostados para esse usuario nessa aposta",
+            'userNotExists' => "Esse usuario não existe"
         ];
 
         return $return[$arg];

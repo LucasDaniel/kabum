@@ -2,7 +2,6 @@
 
 namespace App\Validators;
 
-use App\Validators\Validator;
 use App\Models\User;
 use App\Enums\TypesEnum;
 

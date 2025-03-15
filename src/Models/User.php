@@ -15,7 +15,7 @@ class User extends Database {
         $statement->bindParam(":email", $data['email'], PDO::PARAM_STR);
         $statement->bindParam(":senha", $data['senha'], PDO::PARAM_STR);
         $statement->execute();
-        return $pdo->lastInsertId() > 0;
+        return $pdo->lastInsertId();
     }
 
     public static function login(array $data) {
@@ -23,6 +23,14 @@ class User extends Database {
         $statement = $pdo->prepare(UserRepository::rawLoginUser());
         $statement->bindParam(":email", $data['email'], PDO::PARAM_STR);
         $statement->bindParam(":senha", $data['senha'], PDO::PARAM_STR);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function verifyUserById(int $id_user) {
+        $pdo = self::getConnection();
+        $statement = $pdo->prepare(UserRepository::rawVerifyUserById());
+        $statement->bindParam(":id", $id_user, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
     }

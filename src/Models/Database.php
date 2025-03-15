@@ -3,7 +3,8 @@
 namespace App\Models;
 
 use PDO;
-use App\Models\User;
+use App\Services\UserService;
+use App\Services\UserTokenService;
 use App\Repositories\DatabaseRepository;
 
 class Database {
@@ -22,9 +23,11 @@ class Database {
     public static function migrate() {
         $pdo = self::getConnection();
         $pdo->exec(DatabaseRepository::createUser());
+        $pdo->exec(DatabaseRepository::createUserToken());
     }
 
     public static function seeder() {
-        User::save(['nome'=>'Admin','email'=>'a@a','senha'=>'a']);
+        $id_user = UserService::create(['nome'=>'Admin','email'=>'a@a','senha'=>'a']);
+        UserTokenService::create($id_user);
     }
 }

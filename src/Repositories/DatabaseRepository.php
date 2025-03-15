@@ -15,14 +15,14 @@ class DatabaseRepository {
                         );";
     }
 
-    public static function createApostadorBilhete() {
-        print_r("executando createApostadorBilhete<br><br>");
+    public static function createUserToken() {
+        print_r("executando createUserToken<br><br>");
         return "CREATE TABLE IF NOT EXISTS 
-                        apostador_bilhete (
+                        user_token (
                             id SERIAL PRIMARY KEY,
-                            id_apostador INTEGER REFERENCES apostador,
-                            id_sorteio INTEGER REFERENCES sorteio,
-                            numeros_escolhidos VARCHAR(255)
+                            id_user INTEGER REFERENCES user,
+                            token VARCHAR(255),
+                            expires_at DATETIME
                         );";
     }
 
