@@ -2,17 +2,17 @@
 
 namespace App\Views;
 
-class Index extends BaseView {
+class Home extends BaseView {
 
     public function render() {
 
-        $vars = self::init('Index');
+        $vars = self::init('Home');
 
         include('Pages/Components/header.php');
 
         include('Pages/Components/customcss.php');
 
-        include('Pages/index.php');
+        include('Pages/home.php');
 
         include('Pages/Components/basescripts.php');
 

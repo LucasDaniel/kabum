@@ -5,16 +5,16 @@ async function logar() {
 
     let form = {
         email: document.getElementById('email').value,
-        password: document.getElementById('password').value
+        senha: document.getElementById('senha').value
     };
 
-    await apiPost(GLOBAL_URL_API + 'logar', form, GLOBAL_DATATYPE_JSON,
+    await apiPost(GLOBAL_URL_API + 'user/login', form, GLOBAL_DATATYPE_JSON,
         function (_return) {
             toastSuccess(_return.message);
-            setCookie('token', _return.object.token, 0.1);
-            localStorage.setItem('name', _return.object.name);
-            localStorage.setItem('email', _return.object.email);
-            goTo('/pt/dashboard');
+            //setCookie('token', _return.object.token, 0.1);
+            localStorage.setItem('name', _return.data.name);
+            localStorage.setItem('email', _return.data.email);
+            goTo('home');
         },
         function (_return) {
             toastError(_return.responseJSON.message);

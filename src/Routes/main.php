@@ -6,10 +6,6 @@ use App\Http\Route;
 //Route::get('/seeder', 'HomeController@seeder');
 
 Route::get('/index', 'ViewController@index');
+Route::get('/home', 'ViewController@home');
 
-Route::get('/', 'HomeController@index');
-Route::post('/html/generate', 'HtmlController@generateHtml');
-Route::post('/apostador/create', 'ApostadorController@store');
-Route::post('/apostador-bilhete/create-random-numbers', 'ApostadorBilheteController@createRandomNumbers');
-Route::post('/sorteio/create', 'SorteioController@store');
-Route::post('/sorteio/generate-win-numbers', 'SorteioController@generateWinNumbers');
+Route::post('/user/login', 'UserController@login');

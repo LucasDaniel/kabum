@@ -4,12 +4,14 @@ namespace App\Repositories;
 
 class DatabaseRepository {
 
-    public static function createApostador() {
-        print_r("executando createApostador<br><br>");
+    public static function createUser() {
+        print_r("executando createUser<br><br>");
         return "CREATE TABLE IF NOT EXISTS 
-                        apostador (
+                        user (
                             id  SERIAL PRIMARY KEY,
-                            nome VARCHAR(255) UNIQUE
+                            nome VARCHAR(255),
+                            email VARCHAR(255) UNIQUE,
+                            senha VARCHAR(255)
                         );";
     }
 

@@ -4,12 +4,16 @@ namespace App\Controllers;
 
 use App\Models\Database;
 use App\Views\Index;
+use App\Views\Home;
 
-class ViewController {
+class ViewController extends Controller {
 
     public function index(){
-        $view = new Index();
-        $view->render();
+        self::render(new Index());
+    }
+
+    public function home(){
+        self::render(new Home());
     }
 
 }

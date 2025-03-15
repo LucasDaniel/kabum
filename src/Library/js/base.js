@@ -7,7 +7,7 @@ let modalLoading = $('#modal-overlay');
 // ----------------- FUNÇÕES GERAIS -----------------
 
 function goTo(url) {
-    window.location.href = url;
+    window.location.href = GLOBAL_URL+"/"+url;
 }
 
 function showLoading(id) {
