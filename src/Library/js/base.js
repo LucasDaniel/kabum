@@ -181,7 +181,3 @@ function toastQuestion(title) {
 }
 
 // -------------------------------- EXECUÇÕES -------------------------------- 
-
-if (!getCookie('language')) {
-    setCookie('language', 'pt', 0.1);
-}

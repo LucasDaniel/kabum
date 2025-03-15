@@ -1,4 +1,7 @@
 
+localStorage.setItem('nome', '');
+localStorage.setItem('email', '');
+
 async function logar() {
 
     showLoading();
@@ -12,7 +15,7 @@ async function logar() {
         function (_return) {
             toastSuccess(_return.message);
             //setCookie('token', _return.object.token, 0.1);
-            localStorage.setItem('name', _return.data.name);
+            localStorage.setItem('nome', _return.data.nome);
             localStorage.setItem('email', _return.data.email);
             goTo('home');
         },
