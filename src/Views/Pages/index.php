@@ -5,7 +5,7 @@ use App\Dictionary\Dictionary;
 <body class="login-page">
     <div class="login-box">
         <div class="login-logo">
-            <b>KABUM</b>
+            <b><?= Dictionary::dictionary('title')['kabum']; ?></b>
         </div>
         <!-- /.login-logo -->
         <div class="card">

@@ -6,6 +6,10 @@ class Dictionary {
 
     public static function dictionary($arg = 'error') {
 
+        $return['title'] = [
+            'kabum' => "KABUM",
+        ]; 
+
         $return['label'] = [
             'loginTitle' => "Faça login para iniciar a sessão",
             'loginButton' => "Logar"
