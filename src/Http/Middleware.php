@@ -9,9 +9,9 @@ class Middleware {
 
     public static function verifyToken() {
         session_start();
-        if(!isset($_COOKIE['token'])) header( "Location: ".$_ENV['APP_URL'].'/index' );
+        if(!isset($_COOKIE['token'])) header( "Location: ".$_ENV['APP_URL'].'/index?e=token' );
         $tokensExists = UserTokenService::verifyTokenExists($_COOKIE['token']);
-        if (!$tokensExists) header( "Location: ".$_ENV['APP_URL'].'/index' );
+        if (!$tokensExists) header( "Location: ".$_ENV['APP_URL'].'/index?e=token' );
     }
 
 }

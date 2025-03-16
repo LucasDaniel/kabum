@@ -4,7 +4,32 @@ const GLOBAL_URL_API = GLOBAL_URL + "/";
 const GLOBAL_DATATYPE_JSON = "json";
 let modalLoading = $('#modal-overlay');
 
+console.log(window);
+console.log(window.location);
+console.log(window.location.search);
+console.log(window.location.search.split("?")[1]);
+
 // ----------------- FUNÇÕES GERAIS -----------------
+
+/**
+ * Verifica os erros que estão na url
+ */
+function verifySearchErrors() {
+    if (window.location.search == "") return;
+    let errors = window.location.search.split("?");
+    if (errors.length < 2) return;
+    errors = errors[1].split("&");
+    let aux = null;
+    errors.forEach(element => {
+        aux = element.split('=');
+        if (aux.length < 2) return;
+        if (aux[1] == 'token') showErrorToken();
+    });
+}
+
+function showErrorToken() {
+    toastError("Token inválido");
+}
 
 function goTo(url) {
     setTimeout(function() {
@@ -183,3 +208,5 @@ function toastQuestion(title) {
 }
 
 // -------------------------------- EXECUÇÕES -------------------------------- 
+
+verifySearchErrors();
