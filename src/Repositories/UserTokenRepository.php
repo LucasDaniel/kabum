@@ -21,4 +21,13 @@ class UserTokenRepository {
                     id_user = :id_user";
     }
 
+    public static function rawSelectTokenExists() {
+        return "SELECT 
+                    count(*)
+                FROM 
+                    user_token
+                WHERE 
+                    token = :token";
+    }
+
 }

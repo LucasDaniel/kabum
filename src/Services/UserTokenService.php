@@ -35,4 +35,15 @@ class UserTokenService extends BaseService {
         return $return;
     }
 
+    public static function verifyTokenExists(string $token) {
+        $return = false;
+        try {
+            UserTokenValidator::validatorToken($token);
+            $return = UserToken::verifyTokenExists($token);
+        } catch (\Exception $e) {
+            return ['error' => $e->getMessage()];
+        }
+        return $return;
+    }
+
 }

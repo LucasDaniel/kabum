@@ -39,4 +39,12 @@ class UserToken extends Database {
         return $token;
     }
 
+    public static function verifyTokenExists(string $token) {
+        $pdo = self::getConnection();
+        $statement = $pdo->prepare(UserTokenRepository::rawSelectTokenExists());
+        $statement->bindParam(":token", $token, PDO::PARAM_STR);
+        $statement->execute();
+        return $statement->fetchColumn() > 0;
+    }
+
 }
