@@ -4,8 +4,8 @@ use App\Dictionary\Dictionary;
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <?php
-    include('Components/Clientes/modalcriarusuario.php');
-    include('Components/Clientes/modaldeleteusuario.php');
+    include('Components/Enderecos/modalcriarendereco.php');
+    include('Components/Enderecos/modaldeleteendereco.php');
 ?>
 <div class="wrapper">
 
@@ -22,10 +22,10 @@ use App\Dictionary\Dictionary;
         <section class="content">
             <div class="container-fluid">
                 <div class="row m-b-1em">
-                    <div class="col-md-10" >
+                    <div class="col-md-9" >
                     </div>
-                    <div class="col-md-2" >
-                        <button type="button" class="btn btn-block btn-primary" onclick="criarNovoCliente()">Criar Novo Cliente</button>
+                    <div class="col-md-3" >
+                        <button type="button" class="btn btn-block btn-primary" onclick="criarNovoEndereco()">Criar Novo Endereco</button>
                     </div>
                 </div>
                 <div class="card">
@@ -33,22 +33,22 @@ use App\Dictionary\Dictionary;
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th style="width: 70%;">Nome</th>
+                                    <th style="width: 70%;">Rua</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($clientes as $id => $cliente) { ?>
+                                <?php foreach($enderecos as $id => $endereco) { ?>
                                 <tr>
-                                    <td><?= $cliente['nome'] ?></td>
+                                    <td><?= $endereco['rua'] ?></td>
                                     <td>
                                     <div class="row">
                                         <div class="col-md-1" ></div>
                                         <div class="col-md-5" >
-                                            <button type="button" class="btn btn-block btn-success" onclick='editarCliente(<?= json_encode($cliente) ?>)'>Editar</button>
+                                            <button type="button" class="btn btn-block btn-success" onclick='editarEndereco(<?= json_encode($endereco) ?>)'>Editar</button>
                                         </div>
                                         <div class="col-md-5" >
-                                            <button type="button" class="btn btn-block btn-danger" onclick="showDeletarCliente(<?= $cliente['id'] ?>)">Deletar</button>
+                                            <button type="button" class="btn btn-block btn-danger" onclick="showDeletarEndereco(<?= $endereco['id'] ?>)">Deletar</button>
                                         </div>
                                         <div class="col-md-1" ></div>
                                     </div>

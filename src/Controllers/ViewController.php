@@ -6,7 +6,9 @@ use App\Models\Database;
 use App\Views\Index;
 use App\Views\Home;
 use App\Views\Clientes;
+use App\Views\Enderecos;
 use App\Services\ClienteService;
+use App\Services\EnderecoService;
 
 class ViewController extends Controller {
 
@@ -21,6 +23,11 @@ class ViewController extends Controller {
     public function clientes(){
         $clientes = ClienteService::getAll();
         self::render(new Clientes($clientes));
+    }
+
+    public function enderecos(){
+        $enderecos = EnderecoService::getAll();
+        self::render(new Enderecos($enderecos));
     }
 
 }

@@ -38,4 +38,18 @@ class DatabaseRepository {
                             telefone VARCHAR(255)
                         );";
     }
+
+    public static function createEndereco() {
+        print_r("executando createEndereco<br><br>");
+        return "CREATE TABLE IF NOT EXISTS 
+                        endereco (
+                            id SERIAL PRIMARY KEY,
+                            rua VARCHAR(255),
+                            numero VARCHAR(8),
+                            complemento VARCHAR(255),
+                            bairro VARCHAR(255),
+                            cidade VARCHAR(255),
+                            estado VARCHAR(2)
+                        );";
+    }
 }

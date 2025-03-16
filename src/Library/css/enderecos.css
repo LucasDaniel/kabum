@@ -6,7 +6,7 @@
     padding-bottom: 1em !important;
 }
 
-#modal-criar-novo-usuario {
+#modal-criar-novo-endereco {
     margin-left: 32%;
     position: absolute;
     display: none;
@@ -15,7 +15,7 @@
     z-index: 10000;
 }
 
-#modal-deletar-usuario {
+#modal-deletar-endereco {
     margin-left: 32%;
     position: absolute;
     display: none;

@@ -23,6 +23,10 @@
                     <i class="nav-icon fas fa-user"></i>
                     <p>Clientes</p>
                 </a>
+                <a href="enderecos" class="nav-link">
+                    <i class="nav-icon fas fa-map"></i>
+                    <p>Endereços</p>
+                </a>
             </ul>
         </nav>
     </div>

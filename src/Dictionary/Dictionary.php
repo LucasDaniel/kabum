@@ -29,6 +29,8 @@ class Dictionary {
             'userNotExists' => "Esse usuario não existe",
             'tokenNotFound' => "O token não foi encontrado",
             'incorrectLogin' => "Login incorreto",
+            'deleteClientError' => "Erro ao apagar o cliente",
+            'deleteEnderecoError' => "Erro ao apagar o endereço",
         ];
 
         return $return[$arg];
