@@ -16,10 +16,10 @@ class UserTokenService extends BaseService {
             UserTokenValidator::validator($id_user);
             $return = UserToken::save($id_user);
         } catch (PDOException $e) {
-            if ($e->errorInfo[0] == ErrorsEnum::DUPLICATE_ID()) return ['error' => explode('=',$e->errorInfo[2])[1]];
-            return ['error' => $e->getMessage()];
+            if ($e->errorInfo[0] == ErrorsEnum::DUPLICATE_ID()) die(explode('=',$e->errorInfo[2])[1]);
+            die($e->getMessage());
         } catch (\Exception $e) {
-            return ['error' => $e->getMessage()];
+            die($e->getMessage());
         }
         return $return;
     }
@@ -30,7 +30,7 @@ class UserTokenService extends BaseService {
             UserTokenValidator::validator($id_user);
             $return = UserToken::update($id_user);
         } catch (\Exception $e) {
-            return ['error' => $e->getMessage()];
+            die($e->getMessage());
         }
         return $return;
     }
@@ -41,7 +41,7 @@ class UserTokenService extends BaseService {
             UserTokenValidator::validatorToken($token);
             $return = UserToken::verifyTokenExists($token);
         } catch (\Exception $e) {
-            return ['error' => $e->getMessage()];
+            die($e->getMessage());
         }
         return $return;
     }

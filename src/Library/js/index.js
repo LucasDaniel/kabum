@@ -22,7 +22,8 @@ async function logar() {
             goTo('home');
         },
         function (_return) {
-            toastError(_return.responseJSON.message);
+            console.log(_return);
+            toastError(_return.responseText);
             hideLoading();
         });
 

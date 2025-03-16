@@ -28,6 +28,7 @@ class Dictionary {
             'validatorSameNumbers' => "Esses numeros já foram apostados para esse usuario nessa aposta",
             'userNotExists' => "Esse usuario não existe",
             'tokenNotFound' => "O token não foi encontrado",
+            'incorrectLogin' => "Login incorreto",
         ];
 
         return $return[$arg];
