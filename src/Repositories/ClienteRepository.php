@@ -11,6 +11,19 @@ class ClienteRepository {
                     (:nome,:data_de_nascimento,:cpf,:rg,:telefone)";
     }
 
+    public static function rawUpdateCliente() {
+        return "UPDATE 
+                    cliente
+                SET 
+                    nome = :nome,
+                    data_de_nascimento = :data_de_nascimento,
+                    cpf = :cpf,
+                    rg = :rg,
+                    telefone = :telefone
+                WHERE 
+                    id = :id";
+    }
+
     public static function rawGetAllCliente() {
         return "SELECT 
                     *

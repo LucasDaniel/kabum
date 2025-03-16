@@ -14,9 +14,9 @@ class ClienteController extends Controller {
        
         $body = $request::body();
 
-        $clienteCreate = ClienteService::create($body);
+        $clienteStore = ClienteService::store($body);
 
-        return ClienteResponse::responseCreate($clienteCreate);
+        return ClienteResponse::responseStore($clienteStore);
         
     }
 

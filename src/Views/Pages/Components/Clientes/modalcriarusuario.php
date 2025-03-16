@@ -1,7 +1,7 @@
 <div id="modal-criar-novo-usuario" style="top: 50px;">
     <div class="show-modal-content">
         <div class="modal-header">
-            <h4 class="modal-title" id="modal-title"></h4>
+            <h4 class="modal-title" id="modal-title">Deseja salvar registro?</h4>
         </div>
         <div class="modal-body">
             <div class="form-group ta-left">
@@ -38,8 +38,8 @@
             </div>
         </div>
         <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" id="modal-bt-text-close" onclick="closeModalId('modal-criar-novo-usuario')">Calcelar</button>
-            <button type="button" class="btn btn-primary" id="modal-bt-text-save" onclick="saveCliente()">Criar Cliente</button>
+            <button type="button" class="btn btn-default" id="modal-bt-text-close" onclick="closeModalCliente()">Calcelar</button>
+            <button type="button" class="btn btn-primary" id="modal-bt-text-save" onclick="saveCliente()"></button>
         </div>
     </div>
 </div>

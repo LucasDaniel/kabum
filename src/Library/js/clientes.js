@@ -1,20 +1,30 @@
 
-let idDeletarCliente = 0;
+let idModalCliente = 0;
+let statusModalCliente = '';
 
 function criarNovoCliente() {
     displayBlockElement('modal-criar-novo-usuario');
     displayBlockElement('modal-background-black');
+    setValueElement('nome','');
+    setValueElement('data_nascimento','');
+    setValueElement('cpf','');
+    setValueElement('rg','');
+    setValueElement('telefone','');
+    statusModalCliente = 'criar';
+    changeInnerHtmlElement('modal-bt-text-save','Criar Usuário');
 }
 
 function saveCliente() {
     showLoading();
 
     let form = {
+        id: idModalCliente,
         nome: getValueElement('nome'),
         data_nascimento: getValueElement('data_nascimento'),
         cpf: getValueElement('cpf'),
         rg: getValueElement('rg'),
         telefone: getValueElement('telefone'),
+        statusModalCliente: statusModalCliente
     }
     
     apiPost(GLOBAL_URL_API + 'cliente', form, GLOBAL_DATATYPE_JSON,
@@ -30,13 +40,18 @@ function saveCliente() {
     );
 }
 
+function closeModalCliente() {
+    statusModalCliente = '';
+    closeModalId('modal-criar-novo-usuario');
+}
+
 function closeDeletarCliente() {
-    idDeletarCliente = 0;
+    idModalCliente = 0;
     closeModalId('modal-deletar-usuario');
 }
 
 function showDeletarCliente(id) {
-    idDeletarCliente = id;
+    idModalCliente = id;
     displayBlockElement('modal-deletar-usuario');
     displayBlockElement('modal-background-black');
 }
@@ -46,7 +61,7 @@ function deletarCliente() {
     showLoading();
 
     let form = {
-        id: idDeletarCliente
+        id: idModalCliente
     }
     
     apiPost(GLOBAL_URL_API + 'cliente/delete', form, GLOBAL_DATATYPE_JSON,
@@ -55,7 +70,7 @@ function deletarCliente() {
             toastSuccess(_return.message);
             goTo('clientes');
             closeModalId('modal-deletar-usuario');
-            idDeletarCliente = 0;
+            idModalCliente = 0;
         },
         function (_return) {
             toastError(_return.responseText);
@@ -64,8 +79,17 @@ function deletarCliente() {
     );
 }
 
-function editarCliente(id) {
-    
+function editarCliente(cliente) {
+    displayBlockElement('modal-criar-novo-usuario');
+    displayBlockElement('modal-background-black');
+    idModalCliente = cliente.id;
+    statusModalCliente = 'editar';
+    setValueElement('nome',cliente.nome);
+    setValueElement('data_nascimento',cliente.data_nascimento);
+    setValueElement('cpf',cliente.cpf);
+    setValueElement('rg',cliente.rg);
+    setValueElement('telefone',cliente.telefone);
+    changeInnerHtmlElement('modal-bt-text-save','Salvar Usuário');
 }
 
 $(function () {

@@ -45,7 +45,7 @@ use App\Dictionary\Dictionary;
                                     <div class="row">
                                         <div class="col-md-1" ></div>
                                         <div class="col-md-5" >
-                                            <button type="button" class="btn btn-block btn-success" onclick="editarCliente(<?= $cliente['id'] ?>)">Editar</button>
+                                            <button type="button" class="btn btn-block btn-success" onclick='editarCliente(<?= json_encode($cliente) ?>)'>Editar</button>
                                         </div>
                                         <div class="col-md-5" >
                                             <button type="button" class="btn btn-block btn-danger" onclick="showDeletarCliente(<?= $cliente['id'] ?>)">Deletar</button>

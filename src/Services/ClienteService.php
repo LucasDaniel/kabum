@@ -12,11 +12,12 @@ use PDOException;
 
 class ClienteService extends BaseService {
     
-    public static function create(array $data) {
+    public static function store(array $data) {
         $return = false;
         try {
             ClienteValidator::validator($data);
-            $return = Cliente::save($data);
+            if ($data['id'] > 0) $return = Cliente::create($data);
+            else $return = Cliente::update($data);
         } catch (PDOException $e) {
             if ($e->errorInfo[0] == ErrorsEnum::DUPLICATE_ID()) die(explode('=',$e->errorInfo[2])[1]);
             die($e->getMessage());
