@@ -52,4 +52,14 @@ class DatabaseRepository {
                             estado VARCHAR(2)
                         );";
     }
+
+    public static function createClienteEndereco() {
+        print_r("executando createClienteEndereco<br><br>");
+        return "CREATE TABLE IF NOT EXISTS 
+                        cliente_endereco (
+                            id SERIAL PRIMARY KEY,
+                            id_cliente INTEGER REFERENCES cliente,
+                            id_endereco INTEGER REFERENCES endereco
+                        );";
+    }
 }

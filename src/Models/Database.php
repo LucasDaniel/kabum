@@ -27,6 +27,7 @@ class Database {
         $pdo->exec(DatabaseRepository::createUserToken());
         $pdo->exec(DatabaseRepository::createCliente());
         $pdo->exec(DatabaseRepository::createEndereco());
+        $pdo->exec(DatabaseRepository::createClienteEndereco());
     }
 
     public static function seeder() {

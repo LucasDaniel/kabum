@@ -31,6 +31,7 @@ class Dictionary {
             'incorrectLogin' => "Login incorreto",
             'deleteClientError' => "Erro ao apagar o cliente",
             'deleteEnderecoError' => "Erro ao apagar o endereço",
+            'deleteClienteEnderecoError' => "Erro ao deletar o vinculo"
         ];
 
         return $return[$arg];
