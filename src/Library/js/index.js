@@ -3,8 +3,6 @@ localStorage.setItem('nome', '');
 localStorage.setItem('email', '');
 eraseCookie('token');
 
-
-
 async function logar() {
 
     showLoading();
