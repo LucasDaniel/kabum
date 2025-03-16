@@ -7,5 +7,6 @@ use App\Http\Route;
 
 Route::get('/index', 'ViewController@index');
 Route::get('/home', 'ViewController@home',true);
+Route::get('/clientes', 'ViewController@clientes',true);
 
 Route::post('/user/login', 'UserController@login');
