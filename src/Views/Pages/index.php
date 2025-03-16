@@ -39,5 +39,3 @@ use App\Dictionary\Dictionary;
             </div>
             <!-- /.login-card-body -->
         </div>
-    </div>
-</body>

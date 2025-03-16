@@ -18,7 +18,7 @@ class Index extends BaseView {
 
         include('Pages/Components/customjs.php');
 
-        include('Pages/Components/footer.php');
+        include('Pages/Components/footerindex.php');
         
     }
 
