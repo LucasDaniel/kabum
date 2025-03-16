@@ -4,11 +4,6 @@ const GLOBAL_URL_API = GLOBAL_URL + "/";
 const GLOBAL_DATATYPE_JSON = "json";
 let modalLoading = $('#modal-overlay');
 
-console.log(window);
-console.log(window.location);
-console.log(window.location.search);
-console.log(window.location.search.split("?")[1]);
-
 // ----------------- FUNÇÕES GERAIS -----------------
 
 /**
@@ -34,7 +29,7 @@ function showErrorToken() {
 function goTo(url) {
     setTimeout(function() {
         window.location.href = GLOBAL_URL+"/"+url;
-    },500);
+    },1000);
 }
 
 function showLoading(id) {
@@ -44,6 +39,116 @@ function showLoading(id) {
 function hideLoading(id) {
     $('#modal-overlay').css("display", "none").css("opacity", "0");
 }
+
+// ----------------- MODAL -----------------
+let modal = {
+    background: document.getElementById('modal-background-black'),
+    textClose: document.getElementById('modal-bt-text-close'),
+    textSave: document.getElementById('modal-bt-text-save'),
+    conteudo: document.getElementById('modal-text'),
+    titulo: document.getElementById('modal-title'),
+}
+
+function closeModalId(id) {
+    closeModal();
+    displayNoneElement(id);
+}
+
+function closeModal() {
+    displayNoneByElement(modal.background);
+}
+
+function showModal(titulo='', textSave='', textClose='') {
+
+    console.log("showModal");
+        
+    displayBlockByElement(modal.background);
+
+    //inicia os botões normal
+    modal.textSave.style.color = 'white';
+    modal.textSave.style.borderColor = '#0069d9';
+    modal.textSave.style.backgroundColor = '#0062cc';
+    modal.textSave.style.cursor = 'pointer';
+    modal.textClose.style.color = 'black';
+    modal.textClose.style.borderColor = 'black';
+    modal.textClose.style.backgroundColor = 'white';
+    modal.textClose.style.cursor = 'pointer';
+
+    showHideElement(modal.textClose,textClose);
+    showHideElement(modal.textSave,textSave);
+
+    changeInnerHtmlByElement(modal.titulo,titulo);
+    
+}
+
+function showHideElement(element,text) {
+    element.style.display = "block";
+    changeInnerHtmlByElement(element,text);
+    if (text == '') {
+        element.style.color = "white";
+        element.style.borderColor = "white";
+        element.style.backgroundColor = "white";
+        element.style.cursor = "default";
+    }
+}
+// ----------------- MODAL -----------------
+
+// ----------------- TELA DE LOADING -----------------
+function showLoading() {
+    $('#modal-overlay').css("display", "block").css("opacity", "1");
+}
+
+function hideLoading() {
+    $('#modal-overlay').css("display", "none").css("opacity", "0");
+}
+function showLoadingModal() {
+    $('#modal-overlay-modal').css("display", "block").css("opacity", "1");
+}
+
+function hideLoadingModal() {
+    $('#modal-overlay-modal').css("display", "none").css("opacity", "0");
+}
+// ----------------- TELA DE LOADING -----------------
+
+// ----------------- FUNÇÕES DE MODIFICAÇÃO DE ELEMENTO -----------------
+function changeInnerHtmlElement(id,value) {
+    if (document.getElementById(id)) document.getElementById(id).innerHTML = value;
+}
+function disableElement(id) {
+    if (document.getElementById(id)) document.getElementById(id).disabled = true;
+}
+function enableElement(id) {
+    if (document.getElementById(id)) document.getElementById(id).disabled = false;
+}
+function getValueElement(id) {
+    return document.getElementById(id).value;
+}
+function setValueElement(id,value) {
+    if (document.getElementById(id)) document.getElementById(id).value = value;
+}
+function displayNoneElement(id) {
+    if (document.getElementById(id)) document.getElementById(id).style.display = 'none';
+}
+function displayBlockElement(id) {
+    if (document.getElementById(id)) document.getElementById(id).style.display = 'block';
+}
+function displayFlexElement(id) {
+    if (document.getElementById(id)) document.getElementById(id).style.display = 'flex';
+}
+
+function changeBackgroundImageByElement(e,value) {
+    e.style.backgroundImage = "url("+GLOBAL_URL+"../storage/"+value+")";
+}
+function changeInnerHtmlByElement(e,value) {
+    e.innerHTML = value;
+}
+function displayBlockByElement(e) {
+    e.style.display = 'block';
+}
+function displayNoneByElement(e) {
+    e.style.display = 'none';
+}
+// ----------------- FUNÇÕES DE MODIFICAÇÃO DE ELEMENTO -----------------
 
 // ----------------- FUNÇÕES DA API -----------------
 
@@ -163,7 +268,7 @@ function getToast() {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000
+        timer: 3500
     });
 }
 

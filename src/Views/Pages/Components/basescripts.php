@@ -1,27 +1,16 @@
+<div id="modal-background-black">
+</div>
+
 <!-- jQuery -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- jQuery UI 1.11.4 
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/jquery-ui/jquery-ui.min.js"></script>-->
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip 
 <script>
 $.widget.bridge("uibutton", $.ui.button)
-</script>
+</script>-->
 <!-- Bootstrap 4 -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/moment/moment.min.js"></script>
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -35,8 +24,6 @@ $.widget.bridge("uibutton", $.ui.button)
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- Summernote -->
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->

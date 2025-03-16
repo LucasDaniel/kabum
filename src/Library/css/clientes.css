@@ -1,3 +1,30 @@
 .content {
     padding-bottom: 1em !important;
 }
+
+.m-b-1em {
+    padding-bottom: 1em !important;
+}
+
+#modal-criar-novo-usuario {
+    margin-left: 32%;
+    position: absolute;
+    display: none;
+    width: 30em;
+    top: 3em;
+    z-index: 10000;
+}
+
+.ta-left {
+    text-align: left;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] .disable-arrows { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
