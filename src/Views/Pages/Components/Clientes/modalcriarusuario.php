@@ -12,13 +12,13 @@
                 <div class="col-md-6">
                     <div class="form-group ta-left">
                         <label for="data_nascimento">Data de Nascimento</label>
-                        <input type="text" class="form-control" id="data_nascimento">
+                        <input id="data_nascimento" type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group ta-left">
                         <label for="telefone">Telefone</label>
-                        <input type="number" class="form-control disable-arrows" id="telefone">
+                        <input id="telefone" type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(99) 99999-9999&quot;" data-mask="" inputmode="text">
                     </div>
                 </div>
             </div>
@@ -26,13 +26,13 @@
                 <div class="col-md-6">
                     <div class="form-group ta-left">
                         <label for="cpf">CPF</label>
-                        <input type="number" class="form-control disable-arrows" id="cpf">
+                        <input id="cpf" type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;999.999.999.99&quot;" data-mask="" inputmode="text">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group ta-left">
                         <label for="rg">RG</label>
-                        <input type="number" class="form-control disable-arrows" id="rg">
+                        <input id="rg" type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;99.999.999&quot;" data-mask="" inputmode="text">
                     </div>
                 </div>
             </div>

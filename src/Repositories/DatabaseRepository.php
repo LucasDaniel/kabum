@@ -32,7 +32,7 @@ class DatabaseRepository {
                         cliente (
                             id SERIAL PRIMARY KEY,
                             nome VARCHAR(255),
-                            data_de_nascimento DATE,
+                            data_nascimento DATE,
                             cpf VARCHAR(255),
                             rg VARCHAR(255),
                             telefone VARCHAR(255)

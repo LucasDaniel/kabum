@@ -31,10 +31,5 @@ class Database {
     public static function seeder() {
         $id_user = UserService::create(['nome'=>'Admin','email'=>'a@a','senha'=>'a']);
         UserTokenService::create($id_user);
-        ClienteService::create(['nome' => 'Cliente Um',
-                                'data_de_nascimento' => '2000-03-16',
-                                'cpf' => '23654789632',
-                                'rg' => '32165498',
-                                'telefone' => '25998653214']);
     }
 }

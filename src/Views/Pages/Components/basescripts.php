@@ -3,12 +3,12 @@
 
 <!-- jQuery -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 
-<script src="<?= $vars['libraryAdminLte'] ?>plugins/jquery-ui/jquery-ui.min.js"></script>-->
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip 
+<!-- jQuery UI 1.11.4 -->
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip  -->
 <script>
 $.widget.bridge("uibutton", $.ui.button)
-</script>-->
+</script>
 <!-- Bootstrap 4 -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
@@ -24,6 +24,9 @@ $.widget.bridge("uibutton", $.ui.button)
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- InputMask -->
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/moment/moment.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->

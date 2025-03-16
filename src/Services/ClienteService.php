@@ -16,7 +16,7 @@ class ClienteService extends BaseService {
         $return = false;
         try {
             ClienteValidator::validator($data);
-            if ($data['id'] > 0) $return = Cliente::create($data);
+            if ($data['id'] < 1) $return = Cliente::create($data);
             else $return = Cliente::update($data);
         } catch (PDOException $e) {
             if ($e->errorInfo[0] == ErrorsEnum::DUPLICATE_ID()) die(explode('=',$e->errorInfo[2])[1]);

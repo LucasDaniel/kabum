@@ -1,6 +1,5 @@
 
 let idModalCliente = 0;
-let statusModalCliente = '';
 
 function criarNovoCliente() {
     displayBlockElement('modal-criar-novo-usuario');
@@ -10,7 +9,6 @@ function criarNovoCliente() {
     setValueElement('cpf','');
     setValueElement('rg','');
     setValueElement('telefone','');
-    statusModalCliente = 'criar';
     changeInnerHtmlElement('modal-bt-text-save','Criar Usuário');
 }
 
@@ -20,11 +18,10 @@ function saveCliente() {
     let form = {
         id: idModalCliente,
         nome: getValueElement('nome'),
-        data_nascimento: getValueElement('data_nascimento'),
-        cpf: getValueElement('cpf'),
-        rg: getValueElement('rg'),
-        telefone: getValueElement('telefone'),
-        statusModalCliente: statusModalCliente
+        data_nascimento: getValueElement('data_nascimento').split("/").reverse().join("-"),
+        cpf: getValueElement('cpf').replace(/[^0-9]/g, ''),
+        rg: getValueElement('rg').replace(/[^0-9]/g, ''),
+        telefone: getValueElement('telefone').replace(/[^0-9]/g, ''),
     }
     
     apiPost(GLOBAL_URL_API + 'cliente', form, GLOBAL_DATATYPE_JSON,
@@ -41,7 +38,6 @@ function saveCliente() {
 }
 
 function closeModalCliente() {
-    statusModalCliente = '';
     closeModalId('modal-criar-novo-usuario');
 }
 
@@ -83,9 +79,8 @@ function editarCliente(cliente) {
     displayBlockElement('modal-criar-novo-usuario');
     displayBlockElement('modal-background-black');
     idModalCliente = cliente.id;
-    statusModalCliente = 'editar';
     setValueElement('nome',cliente.nome);
-    setValueElement('data_nascimento',cliente.data_nascimento);
+    setValueElement('data_nascimento',cliente.data_nascimento.split("-").reverse().join("/"));
     setValueElement('cpf',cliente.cpf);
     setValueElement('rg',cliente.rg);
     setValueElement('telefone',cliente.telefone);
@@ -93,17 +88,14 @@ function editarCliente(cliente) {
 }
 
 $(function () {
+    $('#data_nascimento').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    $('#telefone').inputmask('(99) 99999-9999', { 'placeholder': '(__) _____-____' })
+    $('#cpf').inputmask('999.999.999-99', { 'placeholder': '___.___.___.__' })
+    $('#rg').inputmask('99.999-999', { 'placeholder': '__.___.___' })
+
     $("#example1").DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false
         /*,"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]*/
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-    });
+    
 });

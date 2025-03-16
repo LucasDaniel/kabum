@@ -6,9 +6,9 @@ class ClienteRepository {
 
     public static function rawInsertCliente() {
         return "INSERT INTO 
-                    cliente (nome,data_de_nascimento,cpf,rg,telefone)
+                    cliente (nome,data_nascimento,cpf,rg,telefone)
                 VALUES 
-                    (:nome,:data_de_nascimento,:cpf,:rg,:telefone)";
+                    (:nome,:data_nascimento,:cpf,:rg,:telefone)";
     }
 
     public static function rawUpdateCliente() {
@@ -16,7 +16,7 @@ class ClienteRepository {
                     cliente
                 SET 
                     nome = :nome,
-                    data_de_nascimento = :data_de_nascimento,
+                    data_nascimento = :data_nascimento,
                     cpf = :cpf,
                     rg = :rg,
                     telefone = :telefone
