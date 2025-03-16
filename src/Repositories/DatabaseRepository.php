@@ -26,12 +26,16 @@ class DatabaseRepository {
                         );";
     }
 
-    public static function createNumeroSorteado() {
-        print_r("executando createNumeroSorteado<br><br>");
+    public static function createCliente() {
+        print_r("executando createCliente<br><br>");
         return "CREATE TABLE IF NOT EXISTS 
-                        sorteio (
+                        cliente (
                             id SERIAL PRIMARY KEY,
-                            numeros_sorteados VARCHAR(255)
+                            nome VARCHAR(255),
+                            data_de_nascimento DATE,
+                            cpf VARCHAR(255),
+                            rg VARCHAR(255),
+                            telefone VARCHAR(255)
                         );";
     }
 }
