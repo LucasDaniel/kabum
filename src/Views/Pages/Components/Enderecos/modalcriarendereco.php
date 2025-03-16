@@ -5,9 +5,18 @@
         </div>
         <div class="modal-body">
             <div class="form-group ta-left">
-                <label for="nome">Rua</label>
+                <label for="rua">Rua</label>
                 <input type="text" class="form-control" id="rua">
             </div>
+            <div class="form-group ta-left">
+                <label for="estado">Estado</label>
+                <select class="form-control select2" style="width: 100%;">
+                    <?php foreach($cidade_estados['estados'] as $id => $e) { ?>
+                        <option value="<?= $e['sigla'] ?>"><?= $e['nome'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div></div>
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" id="modal-bt-text-close" onclick="closeModalEndereco()">Calcelar</button>

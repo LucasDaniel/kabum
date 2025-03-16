@@ -16,7 +16,6 @@ use App\Dictionary\Dictionary;
     <div class="content-wrapper">
 
         <?php
-        $titlePage = $vars['title'];
         include('Components/titlepage.php');
         ?>
         <section class="content">

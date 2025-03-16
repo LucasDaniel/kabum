@@ -76,10 +76,8 @@ function editarEndereco(endereco) {
 }
 
 $(function () {
-    $('#data_nascimento').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-    $('#telefone').inputmask('(99) 99999-9999', { 'placeholder': '(__) _____-____' })
-    $('#cpf').inputmask('999.999.999-99', { 'placeholder': '___.___.___.__' })
-    $('#rg').inputmask('99.999-999', { 'placeholder': '__.___.___' })
+    //Initialize Select2 Elements
+    $('.select2').select2()
 
     $("#example1").DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false

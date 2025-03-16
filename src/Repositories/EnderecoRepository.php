@@ -6,16 +6,21 @@ class EnderecoRepository {
 
     public static function rawInsertEndereco() {
         return "INSERT INTO 
-                    endereco (rua)
+                    endereco (rua,numero,complemento,bairro,cidade,estado)
                 VALUES 
-                    (:rua)";
+                    (:rua,:numero,:complemento,:bairro,:cidade,:estado)";
     }
 
     public static function rawUpdateEndereco() {
         return "UPDATE 
                     endereco
                 SET 
-                    rua = :rua
+                    rua = :rua,
+                    numero = :numero,
+                    complemento = :complemento,
+                    bairro = :bairro,
+                    cidade = :cidade,
+                    estado = :estado
                 WHERE 
                     id = :id";
     }

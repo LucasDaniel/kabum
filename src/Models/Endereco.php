@@ -12,6 +12,11 @@ class Endereco extends Database {
         $pdo = self::getConnection();
         $statement = $pdo->prepare(EnderecoRepository::rawInsertEndereco());
         $statement->bindParam(":rua", $data['rua'], PDO::PARAM_STR);
+        $statement->bindParam(":numero", $data['numero'], PDO::PARAM_STR);
+        $statement->bindParam(":complemento", $data['complemento'], PDO::PARAM_STR);
+        $statement->bindParam(":bairro", $data['bairro'], PDO::PARAM_STR);
+        $statement->bindParam(":cidade", $data['cidade'], PDO::PARAM_STR);
+        $statement->bindParam(":estado", $data['estado'], PDO::PARAM_STR);
         $statement->execute();
         return $pdo->lastInsertId();
     }
@@ -21,6 +26,11 @@ class Endereco extends Database {
         $statement = $pdo->prepare(EnderecoRepository::rawUpdateEndereco());
         $statement->bindParam(":id", $data['id'], PDO::PARAM_INT);
         $statement->bindParam(":rua", $data['rua'], PDO::PARAM_STR);
+        $statement->bindParam(":numero", $data['numero'], PDO::PARAM_STR);
+        $statement->bindParam(":complemento", $data['complemento'], PDO::PARAM_STR);
+        $statement->bindParam(":bairro", $data['bairro'], PDO::PARAM_STR);
+        $statement->bindParam(":cidade", $data['cidade'], PDO::PARAM_STR);
+        $statement->bindParam(":estado", $data['estado'], PDO::PARAM_STR);
         $statement->execute();
         return $statement->rowCount();
     }

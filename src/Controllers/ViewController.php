@@ -9,6 +9,7 @@ use App\Views\Clientes;
 use App\Views\Enderecos;
 use App\Services\ClienteService;
 use App\Services\EnderecoService;
+use App\Enums\CitiesStatesEnum;
 
 class ViewController extends Controller {
 
@@ -27,7 +28,7 @@ class ViewController extends Controller {
 
     public function enderecos(){
         $enderecos = EnderecoService::getAll();
-        self::render(new Enderecos($enderecos));
+        self::render(new Enderecos($enderecos,CitiesStatesEnum::CITIES_STATES()));
     }
 
 }

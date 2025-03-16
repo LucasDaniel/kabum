@@ -12,7 +12,7 @@
     display: none;
     width: 30em;
     top: 3em;
-    z-index: 10000;
+    z-index: 99;
 }
 
 #modal-deletar-usuario {
@@ -21,7 +21,7 @@
     display: none;
     width: 30em;
     top: 3em;
-    z-index: 10000;
+    z-index: 99;
 }
 
 .ta-left {

@@ -11,6 +11,8 @@ $.widget.bridge("uibutton", $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/select2/js/select2.full.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
