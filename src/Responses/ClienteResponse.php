@@ -8,4 +8,8 @@ class ClienteResponse extends BaseResponse {
         return self::verifyDataAndReturn($arg,'Cliente criado com sucesso');
     }
 
+    public static function responseDelete($arg) {
+        return self::verifyDataAndReturn($arg,'Cliente deletado com sucesso');
+    }
+
 }

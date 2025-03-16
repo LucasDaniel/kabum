@@ -15,6 +15,15 @@
     z-index: 10000;
 }
 
+#modal-deletar-usuario {
+    margin-left: 32%;
+    position: absolute;
+    display: none;
+    width: 30em;
+    top: 3em;
+    z-index: 10000;
+}
+
 .ta-left {
     text-align: left;
 }

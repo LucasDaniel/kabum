@@ -27,4 +27,12 @@ class Cliente extends Database {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function delete(array $data) {
+        $pdo = self::getConnection();
+        $statement = $pdo->prepare(ClienteRepository::rawDeleteCliente());
+        $statement->bindParam(":id", $data['id'], PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->rowCount();
+    }
+
 }

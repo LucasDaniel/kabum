@@ -20,4 +20,14 @@ class ClienteController extends Controller {
         
     }
 
+    public function delete(Request $request) {
+       
+        $body = $request::body();
+
+        $clienteDelete = ClienteService::delete($body);
+
+        return ClienteResponse::responseDelete($clienteDelete);
+        
+    }
+
 }

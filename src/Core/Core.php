@@ -17,12 +17,13 @@ class Core {
         
         $url = '/';
         isset($_GET['url']) && $url .= $_GET['url'];
-        $url !== '/' && $url = rtrim($url, '/');
+        $url !== '/' && $url = rtrim($url, '/');        
 
         if (!str_contains($url,$routeLibrary)) {
             foreach($routes as $route) {
                 $pattern = '#^'.preg_replace('/{id}/','([\w-]+)',$route['path']).'$#';
                 if (preg_match($pattern, $url, $matches)) {
+
                     array_shift($matches);
 
                     $routeFound = true;

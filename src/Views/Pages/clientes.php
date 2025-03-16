@@ -5,6 +5,7 @@ use App\Dictionary\Dictionary;
 <body class="hold-transition sidebar-mini layout-fixed">
 <?php
     include('Components/Clientes/modalcriarusuario.php');
+    include('Components/Clientes/modalconfirmdelete.php');
 ?>
 <div class="wrapper">
 
@@ -32,7 +33,7 @@ use App\Dictionary\Dictionary;
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Nome</th>
+                                    <th style="width: 70%;">Nome</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -40,7 +41,17 @@ use App\Dictionary\Dictionary;
                                 <?php foreach($clientes as $id => $cliente) { ?>
                                 <tr>
                                     <td><?= $cliente['nome'] ?></td>
-                                    <td>Botões de ação</td>
+                                    <td>
+                                    <div class="row">
+                                        <div class="col-md-1" ></div>
+                                        <div class="col-md-5" >
+                                            <button type="button" class="btn btn-block btn-success" onclick="editarCliente(<?= $cliente['id'] ?>)">Editar</button>
+                                        </div>
+                                        <div class="col-md-5" >
+                                            <button type="button" class="btn btn-block btn-danger" onclick="showDeletarCliente(<?= $cliente['id'] ?>)">Deletar</button>
+                                        </div>
+                                        <div class="col-md-1" ></div>
+                                    </div>
                                 </tr>
                                 <?php } ?>
                             </tbody>

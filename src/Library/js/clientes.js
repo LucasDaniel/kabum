@@ -1,9 +1,9 @@
 
-function criarNovoCliente() {    
-    console.log("criarNovoCliente");
-    enableElement('modal-bt-text-close');
+let idDeletarCliente = 0;
+
+function criarNovoCliente() {
     displayBlockElement('modal-criar-novo-usuario');
-    showModal('Criando um novo cliente','Salvar personagem','Cancelar');
+    displayBlockElement('modal-background-black');
 }
 
 function saveCliente() {
@@ -19,17 +19,53 @@ function saveCliente() {
     
     apiPost(GLOBAL_URL_API + 'cliente', form, GLOBAL_DATATYPE_JSON,
         function (_return) {
-            console.log(_return);
             toastSuccess(_return.message);
-            hideLoading();
             goTo('clientes');
-            closeModalId('modal-criar-novo-usuario')
+            closeModalId('modal-criar-novo-usuario');
         },
         function (_return) {
             toastError(_return.responseText);
             hideLoading();
         }
     );
+}
+
+function closeDeletarCliente() {
+    idDeletarCliente = 0;
+    closeModalId('modal-deletar-usuario');
+}
+
+function showDeletarCliente(id) {
+    idDeletarCliente = id;
+    displayBlockElement('modal-deletar-usuario');
+    displayBlockElement('modal-background-black');
+}
+
+function deletarCliente() {
+
+    showLoading();
+
+    let form = {
+        id: idDeletarCliente
+    }
+    
+    apiPost(GLOBAL_URL_API + 'cliente/delete', form, GLOBAL_DATATYPE_JSON,
+        function (_return) {
+            console.log(_return);
+            toastSuccess(_return.message);
+            goTo('clientes');
+            closeModalId('modal-deletar-usuario');
+            idDeletarCliente = 0;
+        },
+        function (_return) {
+            toastError(_return.responseText);
+            hideLoading();
+        }
+    );
+}
+
+function editarCliente(id) {
+    
 }
 
 $(function () {

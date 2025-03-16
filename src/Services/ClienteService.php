@@ -6,6 +6,7 @@ use App\Validators\ClienteValidator;
 use App\Models\Cliente;
 use App\Enums\ErrorsEnum;
 use App\Exceptions\IncorrectLoginException;
+use App\Exceptions\DeleteClientErrorException;
 
 use PDOException;
 
@@ -27,6 +28,17 @@ class ClienteService extends BaseService {
 
     public static function getAll() {
         return Cliente::getAll();
+    }
+
+    public static function delete(array $data) {
+        $return = false;
+        try {
+            $return = Cliente::delete($data);
+            if (!$return) DeleteClientErrorException::exception();
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
+        return $return;
     }
 
 }

@@ -27,4 +27,14 @@ class ClienteRepository {
                     id = :id";
     }
 
+    public static function rawDeleteCliente() {
+        return "DELETE 
+                FROM 
+                    cliente 
+                WHERE 
+                    id = :id";
+    }
+
+    //
+
 }

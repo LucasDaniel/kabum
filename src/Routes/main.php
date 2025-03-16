@@ -11,3 +11,4 @@ Route::get('/clientes', 'ViewController@clientes',true);
 
 Route::post('/user/login', 'UserController@login');
 Route::post('/cliente', 'ClienteController@store',true);
+Route::post('/cliente/delete', 'ClienteController@delete',true);

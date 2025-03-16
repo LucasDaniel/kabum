@@ -41,55 +41,13 @@ function hideLoading(id) {
 }
 
 // ----------------- MODAL -----------------
-let modal = {
-    background: document.getElementById('modal-background-black'),
-    textClose: document.getElementById('modal-bt-text-close'),
-    textSave: document.getElementById('modal-bt-text-save'),
-    conteudo: document.getElementById('modal-text'),
-    titulo: document.getElementById('modal-title'),
-}
-
 function closeModalId(id) {
     closeModal();
     displayNoneElement(id);
 }
 
 function closeModal() {
-    displayNoneByElement(modal.background);
-}
-
-function showModal(titulo='', textSave='', textClose='') {
-
-    console.log("showModal");
-        
-    displayBlockByElement(modal.background);
-
-    //inicia os botões normal
-    modal.textSave.style.color = 'white';
-    modal.textSave.style.borderColor = '#0069d9';
-    modal.textSave.style.backgroundColor = '#0062cc';
-    modal.textSave.style.cursor = 'pointer';
-    modal.textClose.style.color = 'black';
-    modal.textClose.style.borderColor = 'black';
-    modal.textClose.style.backgroundColor = 'white';
-    modal.textClose.style.cursor = 'pointer';
-
-    showHideElement(modal.textClose,textClose);
-    showHideElement(modal.textSave,textSave);
-
-    changeInnerHtmlByElement(modal.titulo,titulo);
-    
-}
-
-function showHideElement(element,text) {
-    element.style.display = "block";
-    changeInnerHtmlByElement(element,text);
-    if (text == '') {
-        element.style.color = "white";
-        element.style.borderColor = "white";
-        element.style.backgroundColor = "white";
-        element.style.cursor = "default";
-    }
+    displayNoneByElement(document.getElementById('modal-background-black'));
 }
 // ----------------- MODAL -----------------
 
@@ -218,16 +176,12 @@ async function apiPostBearer(url, form, dataType, successPromisse, errorPromisse
     });
 }
 
-async function apiDeleteBearer(url, form, dataType, successPromisse, errorPromisse) {
+async function apiDelete(url, form, dataType, successPromisse, errorPromisse) {
     jQuery.ajax({
         url: url,
         type: "DELETE",
         data: form,
         dataType: dataType,
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Authorization": "Bearer " + getCookie('token')
-        },
         success: function (_return) {
             successPromisse(_return);
         },

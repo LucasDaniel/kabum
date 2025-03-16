@@ -38,8 +38,8 @@
             </div>
         </div>
         <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" id="modal-bt-text-close" onclick="closeModalId('modal-criar-novo-usuario')"></button>
-            <button type="button" class="btn btn-primary" id="modal-bt-text-save" onclick="saveCliente()"></button>
+            <button type="button" class="btn btn-default" id="modal-bt-text-close" onclick="closeModalId('modal-criar-novo-usuario')">Calcelar</button>
+            <button type="button" class="btn btn-primary" id="modal-bt-text-save" onclick="saveCliente()">Criar Cliente</button>
         </div>
     </div>
 </div>
