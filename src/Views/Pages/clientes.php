@@ -28,22 +28,12 @@ use App\Dictionary\Dictionary;
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($clientes as $id => $cliente) { ?>
                                 <tr>
-                                    <td>Trident</td>
-                                    <td>X</td>
+                                    <td><?= $cliente['nome'] ?></td>
+                                    <td>Botões de ação</td>
                                 </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>C</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>A</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>A</td>
-                                </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

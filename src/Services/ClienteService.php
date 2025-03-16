@@ -25,4 +25,8 @@ class ClienteService extends BaseService {
         return $return;
     }
 
+    public static function getAll() {
+        return Cliente::getAll();
+    }
+
 }

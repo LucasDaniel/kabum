@@ -6,6 +6,7 @@ use App\Models\Database;
 use App\Views\Index;
 use App\Views\Home;
 use App\Views\Clientes;
+use App\Services\ClienteService;
 
 class ViewController extends Controller {
 
@@ -18,7 +19,8 @@ class ViewController extends Controller {
     }
 
     public function clientes(){
-        self::render(new Clientes());
+        $clientes = ClienteService::getAll();
+        self::render(new Clientes($clientes));
     }
 
 }

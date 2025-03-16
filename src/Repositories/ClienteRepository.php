@@ -11,6 +11,13 @@ class ClienteRepository {
                     (:nome,:data_de_nascimento,:cpf,:rg,:telefone)";
     }
 
+    public static function rawGetAllCliente() {
+        return "SELECT 
+                    *
+                FROM 
+                    cliente";
+    }
+
     public static function rawVerifyClienteById() {
         return "SELECT 
                     count(*) as quant

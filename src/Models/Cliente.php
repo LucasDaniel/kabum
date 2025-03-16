@@ -20,4 +20,11 @@ class Cliente extends Database {
         return $pdo->lastInsertId();
     }
 
+    public static function getAll() {
+        $pdo = self::getConnection();
+        $statement = $pdo->prepare(ClienteRepository::rawGetAllCliente());
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
