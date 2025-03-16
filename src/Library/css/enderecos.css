@@ -27,3 +27,85 @@
 .ta-left {
     text-align: left;
 }
+
+.estadoAC {
+    display: none;
+}
+.estadoAL {
+    display: none;
+}
+.estadoAP {
+    display: none;
+}
+.estadoAM {
+    display: none;
+}
+.estadoBA {
+    display: none;
+}
+.estadoCE {
+    display: none;
+}
+.estadoDF {
+    display: none;
+}
+.estadoES {
+    display: none;
+}
+.estadoGO {
+    display: none;
+}
+.estadoMA {
+    display: none;
+}
+.estadoMT {
+    display: none;
+}
+.estadoMS {
+    display: none;
+}
+.estadoMG {
+    display: none;
+}
+.estadoPA {
+    display: none;
+}
+.estadoPB {
+    display: none;
+}
+.estadoPR {
+    display: none;
+}
+.estadoPE {
+    display: none;
+}
+.estadoPI {
+    display: none;
+}
+.estadoRJ {
+    display: none;
+}
+.estadoRN {
+    display: none;
+}
+.estadoRS {
+    display: none;
+}
+.estadoRO {
+    display: none;
+}
+.estadoRR {
+    display: none;
+}
+.estadoSC {
+    display: none;
+}
+.estadoSP {
+    display: none;
+}
+.estadoSE {
+    display: none;
+}
+.estadoTO {
+    display: none;
+}

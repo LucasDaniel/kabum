@@ -72,6 +72,10 @@ function hideLoadingModal() {
 function changeInnerHtmlElement(id,value) {
     if (document.getElementById(id)) document.getElementById(id).innerHTML = value;
 }
+function getInnerHtmlElement(id) {
+    if (document.getElementById(id)) return document.getElementById(id).innerHTML;
+    return '';
+}
 function disableElement(id) {
     if (document.getElementById(id)) document.getElementById(id).disabled = true;
 }
@@ -84,8 +88,20 @@ function getValueElement(id) {
 function setValueElement(id,value) {
     if (document.getElementById(id)) document.getElementById(id).value = value;
 }
+function displayNoneElementByClass(classe) {
+    let objects = document.getElementsByClassName(classe);
+    objects.forEach(element => {
+        displayNoneByElement(element);
+    });
+}
 function displayNoneElement(id) {
     if (document.getElementById(id)) document.getElementById(id).style.display = 'none';
+}
+function displayBlockElementByClass(classe) {
+    let objects = document.getElementsByClassName(classe);
+    objects.forEach(element => {
+        displayBlockByElement(element);
+    });
 }
 function displayBlockElement(id) {
     if (document.getElementById(id)) document.getElementById(id).style.display = 'block';

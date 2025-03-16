@@ -32,7 +32,9 @@ use App\Dictionary\Dictionary;
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th style="width: 70%;">Rua</th>
+                                    <th style="width: 40%;">Rua</th>
+                                    <th style="width: 10%;">Estado</th>
+                                    <th style="width: 20%;">Cidade</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -40,6 +42,8 @@ use App\Dictionary\Dictionary;
                                 <?php foreach($enderecos as $id => $endereco) { ?>
                                 <tr>
                                     <td><?= $endereco['rua'] ?></td>
+                                    <td><?= $endereco['estado'] ?></td>
+                                    <td><?= $endereco['cidade'] ?></td>
                                     <td>
                                     <div class="row">
                                         <div class="col-md-1" ></div>

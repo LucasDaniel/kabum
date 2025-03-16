@@ -8,12 +8,37 @@ function criarNovoEndereco() {
     changeInnerHtmlElement('modal-bt-text-save','Criar Endereço');
 }
 
+function selecionouEstado() {
+    showLoading();
+    let estado = getValueElement('estado');
+    changeInnerHtmlElement('cidade','');
+    setValueElement('cidade','');
+    apiGet('https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+estado+'/municipios', GLOBAL_DATATYPE_JSON, 
+        function(_return) {
+            let elementCidade = '';
+            _return.forEach(element => {
+                elementCidade += '<option value="'+element.nome+'">'+element.nome+'</option>';
+            });
+            changeInnerHtmlElement('cidade',elementCidade);
+            toastSuccess("Cidades carregadas com sucesso");
+            hideLoading();
+        }, function(_return) {
+            toastError(_return.responseText);
+            hideLoading();
+        });
+}
+
 function saveEndereco() {
     showLoading();
 
     let form = {
         id: idModalEndereco,
         rua: getValueElement('rua'),
+        cidade: getValueElement('cidade'),
+        estado: getValueElement('estado'),
+        bairro: getValueElement('bairro'),
+        numero: getValueElement('numero'),
+        complemento: getValueElement('complemento')
     }
     
     apiPost(GLOBAL_URL_API + 'endereco', form, GLOBAL_DATATYPE_JSON,
@@ -30,6 +55,8 @@ function saveEndereco() {
 }
 
 function closeModalEndereco() {
+    console.log();
+    console.log(getValueElement('cidade'));
     closeModalId('modal-criar-novo-endereco');
 }
 
@@ -77,7 +104,8 @@ function editarEndereco(endereco) {
 
 $(function () {
     //Initialize Select2 Elements
-    $('.select2').select2()
+    $('.select-estado').select2()
+    $('.select-cidade').select2()
 
     $("#example1").DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false
@@ -85,3 +113,5 @@ $(function () {
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     
 });
+
+selecionouEstado();
