@@ -6,47 +6,43 @@ class Route {
 
     private static array $routes = [];
 
-    public static function get(string $path, string $action, bool $middleware = false): void {
-        if ($middleware) self::middleware();
+    public static function get(string $path, string $action, $middleware = false): void {
         self::$routes[] = [
             'path' => $path,
             'action' => $action,
             'method' => "GET",
+            'middleware' => $middleware
         ];
     }
 
-    public static function post(string $path, string $action, bool $middleware = false): void {
-        if ($middleware) self::middleware();
+    public static function post(string $path, string $action, $middleware = false): void {
         self::$routes[] = [
             'path' => $path,
             'action' => $action,
             'method' => "POST",
+            'middleware' => $middleware
         ];
     }
 
-    public static function put(string $path, string $action, bool $middleware = false): void {
-        if ($middleware) self::middleware();
+    public static function put(string $path, string $action, $middleware = false): void {
         self::$routes[] = [
             'path' => $path,
             'action' => $action,
             'method' => "PUT",
+            'middleware' => $middleware
         ];
     }
 
-    public static function delete(string $path, string $action, bool $middleware = false): void {
-        if ($middleware) self::middleware();
+    public static function delete(string $path, string $action, $middleware = false): void {
         self::$routes[] = [
             'path' => $path,
             'action' => $action,
             'method' => "DELETE",
+            'middleware' => $middleware
         ];
     }
 
     public static function routes(): array {
         return self::$routes;
-    }
-
-    private static function middleware() {
-        Middleware::verifyToken();
     }
 }

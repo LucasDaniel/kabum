@@ -1,6 +1,7 @@
 
 localStorage.setItem('nome', '');
 localStorage.setItem('email', '');
+eraseCookie('token');
 
 async function logar() {
 
@@ -13,8 +14,9 @@ async function logar() {
 
     await apiPost(GLOBAL_URL_API + 'user/login', form, GLOBAL_DATATYPE_JSON,
         function (_return) {
+            console.log(_return);
             toastSuccess(_return.message);
-            //setCookie('token', _return.object.token, 0.1);
+            setCookie('token', _return.data.token, 0.1);
             localStorage.setItem('nome', _return.data.nome);
             localStorage.setItem('email', _return.data.email);
             goTo('home');

@@ -24,11 +24,11 @@ class UserTokenService extends BaseService {
         return $return;
     }
 
-    public static function update($data) {
+    public static function update(int $id_user) {
         $return = false;
         try {
-            UserTokenValidator::validator($data);
-            $return = UserToken::update($data);
+            UserTokenValidator::validator($id_user);
+            $return = UserToken::update($id_user);
         } catch (\Exception $e) {
             return ['error' => $e->getMessage()];
         }

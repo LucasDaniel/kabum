@@ -13,7 +13,7 @@ class UserRepository {
 
     public static function rawLoginUser() {
         return "SELECT 
-                    nome, email
+                    id, nome, email
                 FROM 
                     user
                 WHERE 

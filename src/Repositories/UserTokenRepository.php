@@ -12,13 +12,13 @@ class UserTokenRepository {
     }
 
     public static function rawUpdateUserToken() {
-        return "SELECT 
-                    nome, email
-                FROM 
+        return "UPDATE 
                     user_token
+                SET 
+                    token = :token,
+                    expires_at = :expires_at
                 WHERE 
-                    email = :email AND
-                    senha = :senha";
+                    id_user = :id_user";
     }
 
 }

@@ -4,6 +4,7 @@ namespace App\Core;
 
 use App\Http\Request;
 use App\Http\Response;
+use App\Http\Middleware;
 
 class Core {
 
@@ -35,6 +36,8 @@ class Core {
                         return;
                     }
 
+                    if($route['middleware']) self::middleware();
+
                     [$controller, $action] = explode('@', $route['action']);
                     $controller = $prefixController.$controller;
                     $extendController = new $controller();
@@ -51,6 +54,10 @@ class Core {
             $url = $_ENV['DB_HOST'].$url;
             include($url);
         }
+    }
+
+    private static function middleware() {
+        Middleware::verifyToken();
     }
         
 }
