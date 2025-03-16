@@ -12,6 +12,10 @@
         <link rel="stylesheet" href="<?= $vars['libraryAdminLte'] ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" type="text/css">
         <!-- Tempusdominus Bootstrap 4 -->
         <link rel="stylesheet" href="<?= $vars['libraryAdminLte'] ?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="<?= $vars['libraryAdminLte'] ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="<?= $vars['libraryAdminLte'] ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" href="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- iCheck -->
         <link rel="stylesheet" href="<?= $vars['libraryAdminLte'] ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
         <!-- JQVMap -->

@@ -22,6 +22,19 @@ $.widget.bridge("uibutton", $.ui.button)
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/jszip/jszip.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="<?= $vars['libraryAdminLte'] ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- Summernote -->
 <script src="<?= $vars['libraryAdminLte'] ?>plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
