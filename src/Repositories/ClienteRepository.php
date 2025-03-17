@@ -25,10 +25,10 @@ class ClienteRepository {
     }
 
     public static function rawGetAllCliente() {
-        return "SELECT 
-                    *
-                FROM 
-                    cliente";
+        return "SELECT c.id,c.nome,c.data_nascimento,c.cpf,c.rg,c.telefone, GROUP_CONCAT(ce.id_endereco separator ', ') as id_enderecos
+                    FROM kabum.cliente c
+                        LEFT JOIN kabum.cliente_endereco ce ON ce.id_cliente = c.id
+                    GROUP BY c.id,c.nome,c.data_nascimento,c.cpf,c.rg,c.telefone";
     }
 
     public static function rawVerifyClienteById() {

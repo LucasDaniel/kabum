@@ -71,7 +71,6 @@ function deletarCliente() {
     
     apiPost(GLOBAL_URL_API + 'cliente/delete', form, GLOBAL_DATATYPE_JSON,
         function (_return) {
-            console.log(_return);
             toastSuccess(_return.message);
             goTo('clientes');
             closeModalId('modal-deletar-usuario');
@@ -93,7 +92,11 @@ function editarCliente(cliente) {
     setValueElement('cpf',cliente.cpf);
     setValueElement('rg',cliente.rg);
     setValueElement('telefone',cliente.telefone);
-    setValueElement('enderecos',cliente.enderecos);
+    let id_enderecos = cliente.id_enderecos.split(', ');
+    jQuery(function($) {
+        $('#enderecos').val(id_enderecos);
+        $('#enderecos').trigger('change');
+    });
     changeInnerHtmlElement('modal-bt-text-save','Salvar Usuário');
 }
 

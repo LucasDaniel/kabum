@@ -34,6 +34,13 @@ class ClienteEndereco extends Database {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function deleteAllClienteEnderecoByIdCliente($data) {
+        $pdo = self::getConnection();
+        $statement = $pdo->prepare(ClienteEnderecoRepository::rawDeleteAllClienteEnderecoByIdCliente());
+        $statement->bindParam(":id_cliente", $data['id_cliente'], PDO::PARAM_INT);
+        $statement->execute();
+    }
+
     public static function delete(array $data) {
         $pdo = self::getConnection();
         $statement = $pdo->prepare(ClienteEnderecoRepository::rawDeleteClienteEndereco());

@@ -16,12 +16,11 @@ class ClienteEnderecoService extends BaseService {
         $return = false;
         try {
             $id_enderecos = $data['id_enderecos'];
+            ClienteEndereco::deleteAllClienteEnderecoByIdCliente($data);
             foreach ($id_enderecos as $id => $id_endereco) {
-                if(ClienteEnderecoValidator::exists(['id_endereco' => $id_endereco, 'id_cliente' => $data['id_cliente']])) {
-                    $return = ClienteEndereco::create(['id_endereco' => $id_endereco,
-                                                       'id_cliente' => $data['id_cliente']]);
-                    if (!$return) CreateClienteEnderecoErrorException::exception();
-                }
+                $return = ClienteEndereco::create(['id_endereco' => $id_endereco,
+                                                   'id_cliente' => $data['id_cliente']]);
+                if (!$return) CreateClienteEnderecoErrorException::exception();
             }
         } catch (PDOException $e) {
             if ($e->errorInfo[0] == ErrorsEnum::DUPLICATE_ID()) die(explode('=',$e->errorInfo[2])[1]);
@@ -40,6 +39,10 @@ class ClienteEnderecoService extends BaseService {
             die($e->getMessage());
         }
         return $return;
+    }
+
+    public static function deleteAllClienteEnderecoByIdCliente($data) {
+        ClienteEndereco::deleteAllClienteEnderecoByIdCliente(['id_cliente' => $data['id']]);
     }
 
     public static function delete(array $data) {

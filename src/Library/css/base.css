@@ -30,6 +30,11 @@
     overflow-y :scroll; 
 }
 
+.modal-body-delete {
+    position: relative;
+    padding: 1rem;
+}
+
 .modal  {
     z-index: 99999 !important;
 }

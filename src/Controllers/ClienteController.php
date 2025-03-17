@@ -26,6 +26,7 @@ class ClienteController extends Controller {
        
         $body = $request::body();
 
+        ClienteEnderecoService::deleteAllClienteEnderecoByIdCliente($body);
         $clienteDelete = ClienteService::delete($body);
 
         return ClienteResponse::responseDelete($clienteDelete);

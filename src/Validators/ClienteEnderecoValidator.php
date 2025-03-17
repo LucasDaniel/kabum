@@ -20,7 +20,7 @@ class ClienteEnderecoValidator extends Validator {
 
     public static function exists(array $data) {
         $quant = ClienteEndereco::exists($data);
-        return ($quant['quant'] < 1);
+        return ($quant['quant'] > 0);
     }
 
 }

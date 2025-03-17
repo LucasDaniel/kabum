@@ -27,6 +27,13 @@ class ClienteEnderecoRepository {
                     id_cliente = :id_cliente AND
                     id_endereco = :id_endereco";
     }
+
+    public static function rawDeleteAllClienteEnderecoByIdCliente() {
+        return "DELETE FROM 
+                    cliente_endereco
+                WHERE 
+                    id_cliente = :id_cliente";
+    }
     
     public static function rawGetClienteEnderecoByIdClienteIdEndereco() {
         return "SELECT 

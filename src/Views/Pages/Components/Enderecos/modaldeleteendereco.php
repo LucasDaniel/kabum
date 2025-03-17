@@ -3,7 +3,7 @@
         <div class="modal-header">
             <h4 class="modal-title" id="modal-title">Deseja deletar o registro?</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body-delete">
             <p>Essa ação não pode ser recuperada</p>
         </div>
         <div class="modal-footer justify-content-between">
