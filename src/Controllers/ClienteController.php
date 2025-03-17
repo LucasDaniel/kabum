@@ -6,7 +6,7 @@ use App\Http\Request;
 use App\Controllers\Controller;
 use App\Responses\ClienteResponse;
 use App\Services\ClienteService;
-use App\Services\ClienteTokenService;
+use App\Services\ClienteEnderecoService;
 
 class ClienteController extends Controller {
     
@@ -15,6 +15,8 @@ class ClienteController extends Controller {
         $body = $request::body();
 
         $clienteStore = ClienteService::store($body);
+        ClienteEnderecoService::store(['id_enderecos' => $body['enderecos'],
+                                       'id_cliente' => $clienteStore]);
 
         return ClienteResponse::responseStore($clienteStore);
         

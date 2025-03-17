@@ -25,6 +25,11 @@
 
 /* ================= MODAL ================= */
 
+.modal-body {
+    height: 21em;
+    overflow-y :scroll; 
+}
+
 .modal  {
     z-index: 99999 !important;
 }

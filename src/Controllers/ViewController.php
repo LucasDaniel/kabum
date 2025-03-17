@@ -8,6 +8,7 @@ use App\Views\Home;
 use App\Views\Clientes;
 use App\Views\Enderecos;
 use App\Services\ClienteService;
+use App\Services\ClienteEnderecoService;
 use App\Services\EnderecoService;
 use App\Enums\CitiesStatesEnum;
 
@@ -23,7 +24,8 @@ class ViewController extends Controller {
 
     public function clientes(){
         $clientes = ClienteService::getAll();
-        self::render(new Clientes($clientes));
+        $enderecos = EnderecoService::getAll();
+        self::render(new Clientes($clientes,$enderecos));
     }
 
     public function enderecos(){

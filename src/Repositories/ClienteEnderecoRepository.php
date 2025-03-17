@@ -27,7 +27,15 @@ class ClienteEnderecoRepository {
                     id_cliente = :id_cliente AND
                     id_endereco = :id_endereco";
     }
-
-    //
+    
+    public static function rawGetClienteEnderecoByIdClienteIdEndereco() {
+        return "SELECT 
+                    count(*) as quant
+                FROM 
+                    cliente_endereco
+                WHERE 
+                    id_cliente = :id_cliente AND
+                    id_endereco = :id_endereco";
+    }
 
 }

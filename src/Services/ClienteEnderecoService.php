@@ -6,6 +6,7 @@ use App\Validators\ClienteEnderecoValidator;
 use App\Models\ClienteEndereco;
 use App\Enums\ErrorsEnum;
 use App\Exceptions\DeleteClienteEnderecoErrorException;
+use App\Exceptions\CreateClienteEnderecoErrorException;
 
 use PDOException;
 
@@ -14,8 +15,14 @@ class ClienteEnderecoService extends BaseService {
     public static function store(array $data) {
         $return = false;
         try {
-            ClienteEnderecoValidator::validator($data);
-            $return = ClienteEndereco::create($data);
+            $id_enderecos = $data['id_enderecos'];
+            foreach ($id_enderecos as $id => $id_endereco) {
+                if(ClienteEnderecoValidator::exists(['id_endereco' => $id_endereco, 'id_cliente' => $data['id_cliente']])) {
+                    $return = ClienteEndereco::create(['id_endereco' => $id_endereco,
+                                                       'id_cliente' => $data['id_cliente']]);
+                    if (!$return) CreateClienteEnderecoErrorException::exception();
+                }
+            }
         } catch (PDOException $e) {
             if ($e->errorInfo[0] == ErrorsEnum::DUPLICATE_ID()) die(explode('=',$e->errorInfo[2])[1]);
             die($e->getMessage());

@@ -4,6 +4,7 @@ namespace App\Validators;
 
 use App\Models\ClienteEndereco;
 use App\Enums\TypesEnum;
+use App\Exceptions\CreateClienteEnderecoErrorException;
 
 class ClienteEnderecoValidator extends Validator {
 
@@ -15,6 +16,11 @@ class ClienteEnderecoValidator extends Validator {
         ];
 
         self::validate($fields);
+    }
+
+    public static function exists(array $data) {
+        $quant = ClienteEndereco::exists($data);
+        return ($quant['quant'] < 1);
     }
 
 }

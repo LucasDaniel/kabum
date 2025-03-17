@@ -9,11 +9,19 @@ function criarNovoCliente() {
     setValueElement('cpf','');
     setValueElement('rg','');
     setValueElement('telefone','');
+    setValueElement('enderecos',[]);
     changeInnerHtmlElement('modal-bt-text-save','Criar Usuário');
 }
 
 function saveCliente() {
+
     showLoading();
+
+    let enderecos = document.getElementById('enderecos').selectedOptions;
+    let sendEnderecos = [];
+    for(let i = 0; i < enderecos.length; i++) {
+        sendEnderecos.push(enderecos[i].value);
+    }
 
     let form = {
         id: idModalCliente,
@@ -22,6 +30,7 @@ function saveCliente() {
         cpf: getValueElement('cpf').replace(/[^0-9]/g, ''),
         rg: getValueElement('rg').replace(/[^0-9]/g, ''),
         telefone: getValueElement('telefone').replace(/[^0-9]/g, ''),
+        enderecos: sendEnderecos
     }
     
     apiPost(GLOBAL_URL_API + 'cliente', form, GLOBAL_DATATYPE_JSON,
@@ -84,14 +93,17 @@ function editarCliente(cliente) {
     setValueElement('cpf',cliente.cpf);
     setValueElement('rg',cliente.rg);
     setValueElement('telefone',cliente.telefone);
+    setValueElement('enderecos',cliente.enderecos);
     changeInnerHtmlElement('modal-bt-text-save','Salvar Usuário');
 }
 
 $(function () {
-    $('#data_nascimento').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-    $('#telefone').inputmask('(99) 99999-9999', { 'placeholder': '(__) _____-____' })
-    $('#cpf').inputmask('999.999.999-99', { 'placeholder': '___.___.___.__' })
-    $('#rg').inputmask('99.999-999', { 'placeholder': '__.___.___' })
+    $('#data_nascimento').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
+    $('#telefone').inputmask('(99) 99999-9999', { 'placeholder': '(__) _____-____' });
+    $('#cpf').inputmask('999.999.999-99', { 'placeholder': '___.___.___.__' });
+    $('#rg').inputmask('99.999-999', { 'placeholder': '__.___.___' });
+
+    $('.select-cliente-endereco').select2();
 
     $("#example1").DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false

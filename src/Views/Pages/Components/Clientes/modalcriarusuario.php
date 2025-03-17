@@ -36,6 +36,14 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group ta-left">
+                <label for="enderecos">Endereços</label>
+                <select id="enderecos" class="select-cliente-endereco" multiple="multiple" data-placeholder="Selecione um endereço" style="width: 100%;">
+                    <?php foreach($enderecos as $id => $e) { ?>
+                        <option value="<?= $e['id'] ?>"><?= $e['rua'] ?>,<?= $e['numero'] ?> - <?= $e['complemento'] ?> - <?= $e['bairro'] ?> - <?= $e['cidade'] ?>/<?= $e['estado'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" id="modal-bt-text-close" onclick="closeModalCliente()">Calcelar</button>

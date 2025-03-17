@@ -104,8 +104,8 @@ function editarEndereco(endereco) {
 
 $(function () {
     //Initialize Select2 Elements
-    $('.select-estado').select2()
-    $('.select-cidade').select2()
+    $('.select-estado').select2();
+    $('.select-cidade').select2();
 
     $("#example1").DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false

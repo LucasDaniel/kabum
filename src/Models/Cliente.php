@@ -30,7 +30,7 @@ class Cliente extends Database {
         $statement->bindParam(":rg", $data['rg'], PDO::PARAM_STR);
         $statement->bindParam(":telefone", $data['telefone'], PDO::PARAM_STR);
         $statement->execute();
-        return $statement->rowCount();
+        return $data['id'];
     }
 
     public static function getAll() {
