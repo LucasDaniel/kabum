@@ -13,11 +13,11 @@ class ClienteRulesEnum {
     }
 
     public static function DATA_NASCIMENTO_MIN(): int {
-        return 11;
+        return 10;
     }
 
     public static function DATA_NASCIMENTO_MAX(): int {
-        return 11;
+        return 10;
     }
 
     public static function TELEFONE_MIN(): int {
