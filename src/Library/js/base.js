@@ -4,6 +4,8 @@ const GLOBAL_URL_API = GLOBAL_URL + "/";
 const GLOBAL_DATATYPE_JSON = "json";
 let modalLoading = $('#modal-overlay');
 
+changeInnerHtmlElement('logged-user',localStorage.getItem('nome'));
+
 // ----------------- FUNÇÕES GERAIS -----------------
 
 /**

@@ -23,6 +23,26 @@
     font-size: 1.5em;
 }
 
+#logged-user {
+    color: white;
+    padding: 5px 5px 5px 22px;
+}
+
+.sidebar {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.fix-left-padding {
+    padding: 10px 5px 5px 22px;
+
+    i {
+        text-align: center;
+        min-width: 20px;
+        margin-right: 5px;
+    }
+}
+
 /* ================= MODAL ================= */
 
 .modal-body {

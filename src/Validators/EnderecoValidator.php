@@ -4,6 +4,7 @@ namespace App\Validators;
 
 use App\Models\Endereco;
 use App\Enums\TypesEnum;
+use App\Enums\EnderecoRulesEnum;
 
 class EnderecoValidator extends Validator {
 
@@ -17,6 +18,16 @@ class EnderecoValidator extends Validator {
         ];
 
         self::validate($fields);
+
+        $fields = [
+            'rua' => [ $data['rua'] ?? '', EnderecoRulesEnum::RUA_MIN(), EnderecoRulesEnum::RUA_MAX() ],
+            'bairro' => [ $data['bairro'] ?? '', EnderecoRulesEnum::BAIRRO_MIN(), EnderecoRulesEnum::BAIRRO_MAX() ],
+            'cidade' => [ $data['cidade'] ?? '', EnderecoRulesEnum::CIDADE_MIN(), EnderecoRulesEnum::CIDADE_MAX() ],
+            'estado' => [ $data['estado'] ?? '', EnderecoRulesEnum::ESTADO_MIN(), EnderecoRulesEnum::ESTADO_MAX() ],
+            'numero' => [ $data['numero'] ?? '', EnderecoRulesEnum::NUMERO_MIN(), EnderecoRulesEnum::NUMERO_MAX() ],
+        ];
+
+        self::length($fields);
     }
 
 }

@@ -2,6 +2,9 @@
 
 namespace App\Repositories;
 
+use App\Enums\ClienteLengthEnum;
+use App\Enums\EnderecoLengthEnum;
+
 class DatabaseRepository {
 
     public static function createUser() {
@@ -31,11 +34,11 @@ class DatabaseRepository {
         return "CREATE TABLE IF NOT EXISTS 
                         cliente (
                             id SERIAL PRIMARY KEY,
-                            nome VARCHAR(255),
+                            nome VARCHAR(".ClienteRulesEnum::NOME_MAX()."),
                             data_nascimento DATE,
-                            cpf VARCHAR(255),
-                            rg VARCHAR(255),
-                            telefone VARCHAR(255)
+                            cpf VARCHAR(".ClienteRulesEnum::CPF_MAX()."),
+                            rg VARCHAR(".ClienteRulesEnum::RG_MAX()."),
+                            telefone VARCHAR(".ClienteRulesEnum::TELEFONE_MAX().")
                         );";
     }
 
@@ -44,12 +47,12 @@ class DatabaseRepository {
         return "CREATE TABLE IF NOT EXISTS 
                         endereco (
                             id SERIAL PRIMARY KEY,
-                            rua VARCHAR(255),
-                            numero VARCHAR(8),
+                            rua VARCHAR(".EnderecoRulesEnum::RUA_MAX()."),
+                            numero VARCHAR(".EnderecoRulesEnum::NUMERO_MAX()."),
                             complemento VARCHAR(255),
-                            bairro VARCHAR(255),
-                            cidade VARCHAR(255),
-                            estado VARCHAR(2)
+                            bairro VARCHAR(".EnderecoRulesEnum::BAIRRO_MAX()."),
+                            cidade VARCHAR(".EnderecoRulesEnum::CIDADE_MAX()."),
+                            estado VARCHAR(".EnderecoRulesEnum::ESTADO_MAX().")
                         );";
     }
 

@@ -47,8 +47,12 @@
             </div>
         </div>
         <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" id="modal-bt-text-close" onclick="closeModalEndereco()">Calcelar</button>
-            <button type="button" class="btn btn-primary" id="modal-bt-text-save" onclick="saveEndereco()"></button>
+            <button type="button" class="btn btn-default" id="modal-bt-text-close" onclick="closeModalEndereco()">
+                <i class="nav-icon fas fa-arrow-left"></i>
+            </button>
+            <button type="button" class="btn btn-primary" id="modal-bt-text-save" onclick="saveEndereco()">
+                <i class="nav-icon fas fa-plus"></i>
+            </button>
         </div>
     </div>
 </div>

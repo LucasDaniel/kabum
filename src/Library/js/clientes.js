@@ -10,7 +10,6 @@ function criarNovoCliente() {
     setValueElement('rg','');
     setValueElement('telefone','');
     setValueElement('enderecos',[]);
-    changeInnerHtmlElement('modal-bt-text-save','Criar Usuário');
 }
 
 function saveCliente() {
@@ -32,6 +31,14 @@ function saveCliente() {
         telefone: getValueElement('telefone').replace(/[^0-9]/g, ''),
         enderecos: sendEnderecos
     }
+
+    if (form.nome.length < 3) { toastError("O nome precisa ter 3 caracteres no mínimo"); hideLoading(); return; }
+    if (form.nome.length > 255) { toastError("O nome esta muito longo"); hideLoading(); return; }
+    if (form.data_nascimento.length != 10) { toastError("A data de nascimento esta incorreta"); hideLoading(); return; }
+    if (form.telefone.length != 11) { toastError("O telefone esta incorreto"); hideLoading(); return; }
+    if (form.cpf.length != 11) { toastError("O CPF esta incorreto"); hideLoading(); return; }
+    if (form.rg.length != 8) { toastError("O RG esta incorreto"); hideLoading(); return; }
+    if (form.enderecos.length < 1) { toastError("Você precisa adicionar pelo menos um endereço"); hideLoading(); return; }
     
     apiPost(GLOBAL_URL_API + 'cliente', form, GLOBAL_DATATYPE_JSON,
         function (_return) {
@@ -97,7 +104,6 @@ function editarCliente(cliente) {
         $('#enderecos').val(id_enderecos);
         $('#enderecos').trigger('change');
     });
-    changeInnerHtmlElement('modal-bt-text-save','Salvar Usuário');
 }
 
 $(function () {
@@ -109,6 +115,16 @@ $(function () {
     $('.select-cliente-endereco').select2();
 
     $("#example1").DataTable({
+        "language": {
+            "sInfo": "Mostrando _START_ à _END_ de _TOTAL_ entradas",
+            "sSearch": "<i class='nav-icon fas fa-search'></i>",
+            "oPaginate": {
+                "sFirst": "Primeiro", 
+                "sLast": "Ultimo", 
+                "sNext": "Proximo", 
+                "sPrevious": "Anterior"
+            }
+        },
         "responsive": true, "lengthChange": false, "autoWidth": false
         /*,"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]*/
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');

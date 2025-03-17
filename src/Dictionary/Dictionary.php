@@ -32,7 +32,9 @@ class Dictionary {
             'deleteClientError' => "Erro ao apagar o cliente",
             'deleteEnderecoError' => "Erro ao apagar o endereço",
             'deleteClienteEnderecoError' => "Erro ao deletar o vinculo",
-            'createClienteEnderecoError' => "Erro ao vincular um cliente a um endereco"
+            'createClienteEnderecoError' => "Erro ao vincular um cliente a um endereco",
+            'fieldMinLength' => "O campo (@field) precisa ter @length caracteres no minimo",
+            'fieldMaxLength' => "O campo (@field) precisa ter @length caracteres no máximo",
         ];
 
         return $return[$arg];

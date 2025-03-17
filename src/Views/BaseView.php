@@ -12,6 +12,7 @@ class BaseView {
             'libraryAdminLte' => $urlLibrary.'admin-lte/',
             'libraryCss' => $urlLibrary.'css/',
             'libraryJs' => $urlLibrary.'js/',
+            'libraryImg' => $urlLibrary.'img/',
             'title' => $title,
             'css' => strtolower($title),
             'js' => strtolower($title),

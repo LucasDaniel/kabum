@@ -5,7 +5,6 @@ function criarNovoEndereco() {
     displayBlockElement('modal-criar-novo-endereco');
     displayBlockElement('modal-background-black');
     setValueElement('rua','');
-    changeInnerHtmlElement('modal-bt-text-save','Criar Endereço');
 }
 
 function selecionouEstado() {
@@ -40,6 +39,16 @@ function saveEndereco() {
         numero: getValueElement('numero'),
         complemento: getValueElement('complemento')
     }
+
+    if (form.rua.length < 1) toastError("A rua é obrigatoria");
+    if (form.rua.length > 255) toastError("A rua esta muito longa");
+    if (form.estado.length != 2) toastError("O estado esta incorreto");
+    if (form.numero.length < 1) toastError("O numero é obrigatorio");
+    if (form.numero.length > 8) toastError("O numero esta muito longo");
+    if (form.bairro.length < 1) toastError("O bairro é obrigatorio");
+    if (form.bairro.length > 255) toastError("O bairro esta muito longo");
+    if (form.cidade.length < 1) toastError("A cidade é obrigatoria");
+    if (form.cidade.length > 255) toastError("A cidade esta muito longa");
     
     apiPost(GLOBAL_URL_API + 'endereco', form, GLOBAL_DATATYPE_JSON,
         function (_return) {
@@ -99,7 +108,6 @@ function editarEndereco(endereco) {
     displayBlockElement('modal-background-black');
     idModalEndereco = endereco.id;
     setValueElement('rua',endereco.rua);
-    changeInnerHtmlElement('modal-bt-text-save','Salvar Endereço');
 }
 
 $(function () {
@@ -108,6 +116,16 @@ $(function () {
     $('.select-cidade').select2();
 
     $("#example1").DataTable({
+        "language": {
+            "sInfo": "Mostrando _START_ à _END_ de _TOTAL_ entradas",
+            "sSearch": "<i class='nav-icon fas fa-search'></i>",
+            "oPaginate": {
+                "sFirst": "Primeiro", 
+                "sLast": "Ultimo", 
+                "sNext": "Proximo", 
+                "sPrevious": "Anterior"
+            }
+        },
         "responsive": true, "lengthChange": false, "autoWidth": false
         /*,"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]*/
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');

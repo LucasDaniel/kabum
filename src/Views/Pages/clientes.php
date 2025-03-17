@@ -21,10 +21,13 @@ use App\Dictionary\Dictionary;
         <section class="content">
             <div class="container-fluid">
                 <div class="row m-b-1em">
-                    <div class="col-md-10" >
+                    <div class="col-md-9" >
                     </div>
-                    <div class="col-md-2" >
-                        <button type="button" class="btn btn-block btn-primary" onclick="criarNovoCliente()">Criar Novo Cliente</button>
+                    <div class="col-md-3" >
+                        <button type="button" class="btn btn-block btn-primary" onclick="criarNovoCliente()">
+                            <i class="nav-icon fas fa-user-plus"></i>
+                            Criar Novo Cliente
+                        </button>
                     </div>
                 </div>
                 <div class="card">
@@ -32,7 +35,7 @@ use App\Dictionary\Dictionary;
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th style="width: 70%;">Nome</th>
+                                    <th style="width: 80%;">Nome</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -44,10 +47,14 @@ use App\Dictionary\Dictionary;
                                     <div class="row">
                                         <div class="col-md-1" ></div>
                                         <div class="col-md-5" >
-                                            <button type="button" class="btn btn-block btn-success" onclick='editarCliente(<?= json_encode($cliente) ?>)'>Editar</button>
+                                            <button type="button" class="btn btn-block btn-success" onclick='editarCliente(<?= json_encode($cliente) ?>)'>
+                                                <i class="nav-icon fas fa-edit"></i>
+                                            </button>
                                         </div>
                                         <div class="col-md-5" >
-                                            <button type="button" class="btn btn-block btn-danger" onclick="showDeletarCliente(<?= $cliente['id'] ?>)">Deletar</button>
+                                            <button type="button" class="btn btn-block btn-danger" onclick="showDeletarCliente(<?= $cliente['id'] ?>)">
+                                                <i class="nav-icon fas fa-trash"></i>
+                                            </button>
                                         </div>
                                         <div class="col-md-1" ></div>
                                     </div>

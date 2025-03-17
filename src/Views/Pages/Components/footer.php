@@ -1,8 +1,7 @@
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
+        <strong>Prova feita em 17/03/2025 para a <a href="https://kabum.com.br">KABUM</a>.</strong>
         <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
+        <b>Feito por</b> Lucas Daniel Beltrame de Lima Rodrigues
         </div>
     </footer>
 </div>
