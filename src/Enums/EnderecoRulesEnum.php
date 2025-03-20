@@ -12,7 +12,7 @@ class EnderecoRulesEnum {
         return 8;
     }
 
-    public static function ESTADO_MIM(): int {
+    public static function ESTADO_MIN(): int {
         return 2;
     }
 
